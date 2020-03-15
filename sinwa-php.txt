@@ -1,0 +1,52 @@
+https://www.php think runkancloud.cn/manual/thinkphp6_0/1037479
+
+安装 ：composer create-project topthink/think 项目目录
+
+更新： composer update topthink/framework
+
+
+#返回json
+
+    //设置数组
+    $result = [
+        "status" => 1,
+        "message"=>"ok",
+        "result"=>[
+            "id"=>1
+        ]
+    ];
+
+    //设置header信息
+
+    $header = [
+        "Token"=>'show_token'
+    ];
+
+    //返回json
+    return json($result,500,$header);
+#打印访问的所有参数
+    1.  dump($this->request->param());
+        dump($this->request->param('age', 1, "intval"));
+    2.方法依赖注入
+        use app\Request;
+        public function index(Request $request)
+        {
+           dump($request->param());
+           dump($request->param('name'));
+           dump($request->param('age', 1, "intval"));
+           $request->isPost();
+           $request->isGet();
+           $request->isAjax();
+        }
+    3.dump(input("name"));
+    4.dump(request()->param('name'));
+    5.use think\facade\Request as requestFace;
+        dump(requestFace::param("name"));
+#安装多模块
+    composer require topthink/think-multi-app
+    安装好了 会在vendor下面多一个目录
+#多模块路由
+    要在模块的文件夹里面新建 route目录
+    然后定义规则
+    访问如下
+    多模块名字/路由规则
