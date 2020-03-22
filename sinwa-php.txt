@@ -50,3 +50,9 @@ https://www.php think runkancloud.cn/manual/thinkphp6_0/1037479
     然后定义规则
     访问如下
     多模块名字/路由规则
+
+
+门面模式
+    composer require topthink/think-view
+验证码
+    composer require topthink/think-captcha
